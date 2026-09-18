@@ -1,0 +1,14 @@
+# Ignore build folder
+build/
+compile_commands.json
+.cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+.zed/
+.vscode/
+.pi/
