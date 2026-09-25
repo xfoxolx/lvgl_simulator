@@ -52,9 +52,16 @@ endif()
 target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS})
 
 # Create the main executable, depending on the FreeRTOS option
+file(GLOB_RECURSE APP_SOURCES CONFIGURE_DEPENDS
+    ${PROJECT_SOURCE_DIR}/app/*.c
+    ${PROJECT_SOURCE_DIR}/app/*.cc
+    ${PROJECT_SOURCE_DIR}/common/*.c
+    ${PROJECT_SOURCE_DIR}/common/*.cc
+)
 
 add_executable(main
     ${PROJECT_SOURCE_DIR}/main.cc
+    ${APP_SOURCES}
 )
 
 # Keep clangd's database where editors look for it.

@@ -21,7 +21,7 @@
 - ⚡ 使用 CMake 构建
 - 🧩 LVGL 通过 Git 子模块管理
 - 🎮 使用 SDL2 提供窗口、键盘和鼠标支持
-- 🎛️ 默认启动 LVGL Widgets Demo
+- 🎛️ `app/` 写业务 UI 与事件，`common/` 放可复用样式组件
 
 ## 📦 依赖
 
@@ -107,21 +107,6 @@ cmake -S . -B build \
 ```bash
 rm -rf build
 cmake -S . -B build
-cmake --build build
-```
-
-## 🧩 自定义应用
-
-默认入口运行：
-
-```cpp
-lv_demo_widgets();
-```
-
-实现自己的 `lvgl_app_main()` 后，使用 `LVGL_APP` 编译宏：
-
-```bash
-cmake -S . -B build -DCMAKE_CXX_FLAGS=-DLVGL_APP
 cmake --build build
 ```
 

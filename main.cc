@@ -12,8 +12,6 @@
 #include <unistd.h>
 #include <pthread.h>
 #include "lvgl/lvgl.h"
-#include "lvgl/examples/lv_examples.h"
-#include "lvgl/demos/lv_demos.h"
 
 extern void lvgl_app_main(void);
 
@@ -27,15 +25,9 @@ int main(int argc, char **argv)
   /*Initialize LVGL*/
   lv_init();
 
-#ifndef LVGL_APP
   /*Initialize the HAL (display, input devices, tick) for LVGL*/
   hal_init(480, 320);
-  lv_demo_widgets();
-#else
-  /*Initialize the HAL (display, input devices, tick) for LVGL*/
-  hal_init(SIM_HOR_RES, SIM_VER_RES);
   lvgl_app_main();
-#endif
 
   while(1) {
     /* Periodically call the lv_task handler.
